@@ -1,0 +1,34 @@
+{ % extends 'base.html' % }
+{% block title %} Hiking Trail FORM {% endblock %}
+
+{% block body %}
+<h1>Welcome!</h1>
+<form action="/result_hikes" method="GET">
+  <label>Pincode</label>
+  <input type ="text" name="pincode" value ="pincode">
+ 
+
+  <label> Difficulty Level</label>
+  
+  <input type ="radio" name ="Difficulty" value = "black" >
+  <label>Black</label>
+
+  
+  <input type ="radio" name ="Difficulty" value = "blue" >
+  <label>Blue</label>      
+  
+  <input type ="radio" name ="Difficulty" value = "blueBlack" >
+  <label>Black-blue</label>     
+
+    <a>
+      <label>Radius of  </label>
+      <input type = "text" name = "radius" value="radius">
+    </a>
+    
+
+  <p>
+    <input type="submit">
+  </p>
+</form>
+{% endblock %}
+  

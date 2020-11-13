@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} SELECTED HIKES{% endblock %}
+
+{% block body %}
+
+
+        <p>
+            {% for trail in trails %}
+                <li>Name</li>
+                <h1>{{ trail.trail_name }}</h1>
+                Summary
+                <p>{{trail.summary}}</p>
+                Image
+                <img src= "{{trail.image}}"> 
+            {% endfor %}
+        </p>
+
+
+{% endblock %}

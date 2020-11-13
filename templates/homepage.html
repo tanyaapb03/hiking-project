@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} ~~~~HIKING TRAILS~~~~~ {% endblock %}
+
+{% block body %}
+  <h1>Welcome!</h1>
+
+  
+
+  <h2>Create an Account</h2>
+  <form   action= "search_hikes.html" method="POST">
+    <p>
+      Email <input type="text" name="email">
+    </p>
+
+    <p>
+      Password <input type="password" name="password">
+    </p>
+
+    <p>
+      <input type="submit" name= "LOGIN " value="login" href= "/login_users">
+      <input type ="submit" name ="sign up " href="signup.html" value="sign up"> 
+    </p>
+  </form>
+{% endblock %}
