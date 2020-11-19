@@ -9,14 +9,59 @@
 
     {% block head %}{% endblock %}
   </head>
-  <body>
+      
+      
+      
+
     {% for msg in get_flashed_messages() %}
       <p class="flash-msg">
         {{ msg }}
       </p>
     {% endfor %}
+    <nav>
+      <style> 
+  
 
-    {% block body %}{% endblock %}
+        .topnav {
+          overflow: hidden;
+          background-color: #333;
+        }
+        
+        .topnav a {
+          float: left;
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+        }
+        
+        .topnav a:hover {
+          background-color: #ddd;
+          color: black;
+        }
+        
+        .topnav a.active {
+          background-color: #4CAF50;
+          color: white;
+        }
+        </style>
+        
+      <div class="topnav">
+        <a  href="/user_profile">profile</a>
+        <a href="/search_hikes">Search</a>
+        <a href="#c">sports news</a>
+        <a href="#about">About</a>
+        <a href="/signout">signout</a>
+      </div>
+
+    </nav> 
+    {% block body %}
+    <body>
+  
+    
+    
+    {% endblock %}
 
     {% block after_body %}{% endblock %}
   </body>

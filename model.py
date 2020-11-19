@@ -12,8 +12,10 @@ class USER(db.Model):
     last_name=db.Column(db.String)
     email=db.Column(db.String)
     password=db.Column(db.String)
-    home_zipcode= db.Column(db.Integer)
+  
 
+    def as_dict(self):
+       return {c.name: getattr(self, c.name) for c in self.__table__.columns}
     def __repr__(self):
         return f'<USER user_id={self.user_id} first_name={self.first_name} last_name={self.last_name} email={self.email} password={self.password} >'
 

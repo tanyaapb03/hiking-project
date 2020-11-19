@@ -3,11 +3,12 @@ import server
 #import requests
 import pgeocode
 
+# def login_user():
 
 
 
-def create_user(email,password):
-    user = USER(email=email, password=password)
+def create_user(first_name,last_name,email,password):
+    user = USER(first_name=first_name,last_name=last_name,email=email, password=password)
 
     db.session.add(user)
     db.session.commit()
@@ -36,13 +37,18 @@ def get_trails():
     return TRAIL.query.all()
 
 def get_trail_by_dis_diff(pincode,difficulty,radius):
-    radius=float(radius)
+    radius= float(radius)
     longi,lat = get_latlong_from_pincode(pincode)
     return TRAIL.query.filter(TRAIL.difficulty==difficulty).filter(TRAIL.latitude.between(lat - radius, lat + radius)).filter(TRAIL.longitude.between(longi- radius, longi + radius)).limit(10).all()
     
 def get_data_by_parameter(difficulty):
     
     return TRAIL.query.filter(TRAIL.difficulty==difficulty).all()
+
+
+def get_trails_by_id (trail_id):
+
+    return TRAIL.query.get(trail_id)
 
 # def get_data_by_radius(radius):
     

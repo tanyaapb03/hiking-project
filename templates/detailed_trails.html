@@ -1,0 +1,27 @@
+
+ 
+<!doctype html>
+{ % extends 'base.html' % } 
+{% block title %} Hiking Trail FORM {% endblock %}
+
+{% block body %}
+
+{{detailed_trail.trail_name}}
+{{detailed_trail.summary}}
+{{detailed_trail.image}}
+{{detailed_trail.trail_length }}
+{{detailed_trail.latitude}}
+{{detailed_trail.longitude}}
+{{detailed_trail.difficulty}}
+{{detailed_trail.star_rating }}
+
+<form>
+    
+    <input type="submit" name= "explore " value="explore">
+</form>
+<form action="/result_hikes"> 
+    <input type=submit name='pass'value="pass">
+</form>
+
+
+{% endblock  %}

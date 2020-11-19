@@ -1,3 +1,5 @@
+
+<!doctype html>
 {% extends 'base.html' %}
 {% block title %} SELECTED HIKES{% endblock %}
 
@@ -5,15 +7,24 @@
 
 
         <p>
-            {% for trail in trails %}
+       
+                {% for trail in trails %}"
+                <form action="/detailed_trails" method="GET">
                 <li>Name</li>
                 <h1>{{ trail.trail_name }}</h1>
                 Summary
                 <p>{{trail.summary}}</p>
                 Image
                 <img src= "{{trail.image}}"> 
-            {% endfor %}
+                <input type="hidden" name="trail_id" value="{{trail.trail_id}}">
+                <input type="submit"name='select'value='select'>
+            </form>
+                {% endfor %}
+        
+            
         </p>
+    
+    
 
 
 {% endblock %}

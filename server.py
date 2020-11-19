@@ -5,9 +5,14 @@ from jinja2 import StrictUndefined
 from flask import jsonify
 import json
 
+
 app = Flask(__name__)
 app.secret_key="dev"
 app.jinja_env.undefined = StrictUndefined
+@app.route('/signout')
+def signout():
+    session["logged_in_user_id"]=None
+    return redirect('/')
 
 
 @app.route('/')
@@ -21,6 +26,15 @@ def searchform():
 
 # @app.route('/hike_search_result')
 # def result():
+
+@app.route('/user_profile')
+def profile():
+    print('LOGGED IN USER ID:', session['logged_in_user_id'])
+    current_logged_in_user = crud.get_user_by_id(session["logged_in_user_id"])
+    print( "************** ___ first name =", current_logged_in_user )
+
+    return render_template('user_profile.html',current_logged_in_user=current_logged_in_user)
+
 
 
 @app.route('/result_hikes')
@@ -41,26 +55,55 @@ def fetch_hikes():
 #     return render_template('result_hikes.html', )
 @app.route('/login_users')
 def login_user():
-    email=request.form.get('email')
-    password= request.form.get('password')
-    if email==crud.get_user_by_email('email'):
-        return redirect('/search_hikes')
+    email=request.args.get('email')
+    password= request.args.get('password')
+    
+    #user object
+    user = crud.get_user_by_email(email)
+
+   
+    # crud file  returns a user and not email or password so to call email and password we use . email or .password
+    if user:
+        # sessionuser=crud.get_user_by_email(email)
+        #loggedin_user
+        if password == user.password: 
+            # creating a session and putting in primary key as value of session 
+            session["logged_in_user_id"]= user.user_id
+            print(session)
+            return redirect('/user_profile')
+        else:
+            flash("incorrect password")
+            return redirect('/')
     else:
         flash('User does not exist')
         return render_template('signup.html')
+       
 
 
+@app.route('/show_signup')
+def show_signup():
+    return render_template('signup.html')
+
+
+@app.route('/detailed_trails')
+def detailed_trails():
+    trail_id=request.args.get('trail_id')
+    detailed_trail=crud.get_trails_by_id(trail_id) # trail id should be same as whose select is selected 
+    return render_template('detailed_trails.html',detailed_trail=detailed_trail)
 
 @app.route('/create_users', methods=['POST'])
 def register_user():
+    first_name=request.form.get('first_name')
+    last_name=request.form.get('last_name')
     email=request.form.get('email')
     password= request.form.get('password')
+    
     user= crud.get_user_by_email('email')
     if user:
-        print("cannot create an account with email.Try again")
+        print("Cannot create an account with email.Try again")
     else:
-        crud.create_user(email,password)
-        print('account created ! please login in')
+        crud.create_user(first_name, last_name,email,password)
+        print('Account created! Please login')
  
     return redirect('/')
 
