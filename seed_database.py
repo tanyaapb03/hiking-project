@@ -39,8 +39,9 @@ for hike in list_of_hiking_dicts:
     difficulty=hike.get('difficulty')
     star_rating=hike.get('star')
     trail_length=hike.get('length')
+    comments='no comments'
 
-    db_trails=crud.create_trail(trail_api_id,trail_name,latitude,longitude,summary,image,difficulty,star_rating,trail_length)
+    db_trails=crud.create_trail(trail_api_id,trail_name,latitude,longitude,summary,image,difficulty,star_rating,trail_length,comments)
     trails_in_db.append(db_trails)
 
 

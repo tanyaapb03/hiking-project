@@ -1,0 +1,14 @@
+<!-- {%for trail in user_trail%}
+    {{trail}}
+    {{trail.trail_name}}
+    {{trail.summary}}
+    <img src="{{trail.image}}" -->
+
+    
+<!-- {%endfor%} -->
+
+
+
+<!-- {%if rating!= none:
+                        trail.star_rating =rating %} 
+                    -->

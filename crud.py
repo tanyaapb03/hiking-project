@@ -14,7 +14,7 @@ def create_user(first_name,last_name,email,password):
     db.session.commit()
 
     return user
-def create_trail(trail_api_id,trail_name,latitude,longitude,summary,image,difficulty,star_rating,trail_length):
+def create_trail(trail_api_id,trail_name,latitude,longitude,summary,image,difficulty,star_rating,trail_length,comments):
     
     trail =TRAIL( 
     trail_api_id=trail_api_id,
@@ -25,12 +25,35 @@ def create_trail(trail_api_id,trail_name,latitude,longitude,summary,image,diffic
     image=image,
     difficulty=difficulty,
     star_rating=star_rating,
-    trail_length=trail_length)
+    trail_length=trail_length,
+    comments=comments)
 
     db.session.add(trail)
     db.session.commit()
 
     return trail
+
+def create_user_selected_trails(user_id, trail_id):
+    users_selected_trail=USERS_SELECTED_TRAIL(
+        user_id=user_id,
+        trail_id=trail_id
+    )
+    db.session.add(users_selected_trail)
+    db.session.commit()
+
+    return users_selected_trail
+
+def get_data_by_user_selected_trail_id(user_selected_trail_id):
+    return USERS_SELECTED_TRAIL.query.get(user_selected_trail_id).first()
+
+
+
+
+def get_trail_by_user_id(user_id):
+    return USERS_SELECTED_TRAIL.query.filter(USERS_SELECTED_TRAIL.user_id==user_id).all()
+
+
+
 
 def get_trails():
 # get all trails
@@ -46,7 +69,7 @@ def get_data_by_parameter(difficulty):
     return TRAIL.query.filter(TRAIL.difficulty==difficulty).all()
 
 
-def get_trails_by_id (trail_id):
+def get_trail_data_by_trail_id(trail_id):
 
     return TRAIL.query.get(trail_id)
 

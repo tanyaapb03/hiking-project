@@ -4,14 +4,95 @@
 {% block title %} Hiking Trail FORM {% endblock %}
 
 {% block body %}
-
-
-
-
-
-
-
 <h1>Welcome! {{current_logged_in_user.first_name }} </h1>
+<div>
+    <link rel="stylesheet" type="text/css" href="/static/user_profile.css">
+</div>
+<style>
+    table, th, td {
+      border: 1px solid black; table-layout:inherit;
+    }
+    th{width: 25%;}
+    </style>
 
-{% endblock %}
+
+
+{#.trails as we named the relation in model .py as trails= .... #}
+{%for trail in current_logged_in_user.trails%}
+<body>
+    <table>
+        <tr>
+            <th>Trail name </th>
+            <th>summary</th>
+            <th>image</th>
+            <th>rating</th>
+            <th> Comments </th>
+          </tr>
+        
+    
+          <tr>
+            <td>{{trail.trail_name}}</td>
+            <td>{{trail.summary}}</td>
+            <td><img src="{{trail.image}}"> </td>
+            <td> <form methods="POST" >
+                
+                <input type="radio" id="1" name="rating" value="1">
+                <label for="1">1</label><br>
+                <input type="radio" id="2" name="rating" value="2">
+                <label for="2">2</label><br>
+                <input type="radio" id="3" name="rating" value="3">
+                <label for="3">3</label><br>
+                <input type="radio" id="4" name="rating" value="4">
+                <label for="4">4</label><br>
+                <input type="radio" id="5" name="rating" value="5">
+                <label for="5">5</label><br>
+            </form></td>
+            <td>
+                <ol>
+                    {%for comment in trail.comments%}
+                   <li>
+                    {{comment.comment_text}}
+                   </li> 
+                {%endfor%}
+
+                </ol>
+                
+            </td>
+
+            <td><form method="POST" action="/create_comments">
+                <input type="text"  id ="Comments"name="comments" value="comments">
+                <input type="submit" id="submit_comments" name="submit_comments" value="submit_comments">
+               <input type="hidden" value="{{trail.trail_id}}" name="trail_id">
+                <label for= "comments"></label> <br>
+            </form>
+
+        </td></tr>
+                </table>
+            </body>
+
+            
+            
+            
+            
+            
+            
+           
+{%endfor%}
+<!-- <tr>
+    Hike name 
+    <td>
+        first elelment 
+
+    </td>
+</tr>
+<tr>
+    summary
+    <td>
+        fsyfasjhv
+    </td>
+</tr> -->
+
+
+
+{%endblock %}
   

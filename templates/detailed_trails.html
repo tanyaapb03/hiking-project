@@ -1,25 +1,51 @@
 
  
 <!doctype html>
-{ % extends 'base.html' % } 
+{% extends 'base.html' %} 
 {% block title %} Hiking Trail FORM {% endblock %}
 
 {% block body %}
+<h1>
+    Name:-
+    {{detailed_trail.trail_name}}
+</h1>
+<p>
+    Summary:-
+    {{detailed_trail.summary}}
+   
+</p>
+<p>
+Image :-
+<img src="{{detailed_trail.image}}">
 
-{{detailed_trail.trail_name}}
-{{detailed_trail.summary}}
-{{detailed_trail.image}}
-{{detailed_trail.trail_length }}
-{{detailed_trail.latitude}}
-{{detailed_trail.longitude}}
-{{detailed_trail.difficulty}}
-{{detailed_trail.star_rating }}
+</p>
+<p>
+Length:-{{detailed_trail.trail_length }}
+</p>
+ <p>
+     Latitude:-  {{detailed_trail.latitude}}
+ </p>   
+<p>
+    Longitude:- {{detailed_trail.longitude}}
+</p>  
+<p>
+    Difficulty:-{{detailed_trail.difficulty}}
+</p> 
+<p>
+    star_rating:-  {{detailed_trail.star_rating }}
+</p>
+<p>
+    comments:- {{detailed_trail.comments}}
 
-<form>
-    
+</p>
+   
+
+
+<form action="/confirmation" method="POST">
+    <input type="hidden" name="selected_trail_id" value="{{detailed_trail.trail_id}}">
     <input type="submit" name= "explore " value="explore">
 </form>
-<form action="/result_hikes"> 
+<form action="/search_hikes"> 
     <input type=submit name='pass'value="pass">
 </form>
 
