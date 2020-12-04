@@ -5,49 +5,46 @@
 {% block title %} Hiking Trail FORM {% endblock %}
 
 {% block body %}
-<h1>
-    Name:-
+<link rel="stylesheet" type="text/css" href="/static/css/detailed-trails.css">
+
+<body class="background-trails">
+    <div class="margin">
+    <div class="view overlay">
+                
+<div class="  justify-content-center center container foreground padding margin img img-fluid form " >
+<div class="heads bold center text-center">
     {{detailed_trail.trail_name}}
-</h1>
-<p>
-    Summary:-
-    {{detailed_trail.summary}}
-   
-</p>
-<p>
-Image :-
-<img src="{{detailed_trail.image}}">
+</div>
+<div><p class="content center"><div class="bold">Summary-</div>{{detailed_trail.summary}}</p></div>
+<div ><img src="{{detailed_trail.image}}"></div>
+<div class="content center"><div class="bold">Length-</div>{{detailed_trail.trail_length }}</div>
+<div class="content center"><div class="bold">Latitude-</div>{{detailed_trail.latitude}}</div>
+    
+<div class="content center"><div class="bold">Longitude-</div>{{detailed_trail.longitude}}</div>
+  
+<div class="content center "><div class="bold">Difficulty Level-</div>{{detailed_trail.difficulty}}</div> 
+<div class="content center"><div class="bold">Star Rating-</div>{{detailed_trail.star_rating }}</div>
+<div class="content center"><div class="bold">Comments-</div>
+    <ol>
+        {%for comment in detailed_trail.comments%}
+       <li>
+        {{comment.comment_text}}
+       </li> 
+       {%endfor%}
 
-</p>
-<p>
-Length:-{{detailed_trail.trail_length }}
-</p>
- <p>
-     Latitude:-  {{detailed_trail.latitude}}
- </p>   
-<p>
-    Longitude:- {{detailed_trail.longitude}}
-</p>  
-<p>
-    Difficulty:-{{detailed_trail.difficulty}}
-</p> 
-<p>
-    star_rating:-  {{detailed_trail.star_rating }}
-</p>
-<p>
-    comments:- {{detailed_trail.comments}}
+    </ol>
 
-</p>
-   
-
-
-<form action="/confirmation" method="POST">
+</div>
+<form  class="form center" action="/confirmation" method="POST">
     <input type="hidden" name="selected_trail_id" value="{{detailed_trail.trail_id}}">
-    <input type="submit" name= "explore " value="explore">
+    <input  class="buttons" type="submit" name= "explore " value="Explore">
 </form>
-<form action="/search_hikes"> 
-    <input type=submit name='pass'value="pass">
+<form  class= "form center " action="/search_hikes"> 
+    <input  class="buttons" type=submit name='pass'value="Pass">
 </form>
-
+</div> 
+</div>
+</div>
+</body>
 
 {% endblock  %}

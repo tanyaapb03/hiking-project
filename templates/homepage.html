@@ -3,25 +3,40 @@
 {% block title %} ~~~~HIKING TRAILS~~~~~ {% endblock %}
 
 {% block body %}
-  <h1>Welcome!</h1>
-
-  <link rel="stylesheet" type="text/css" href="/static/homepage.css">
-
-  <h2>Create an Account</h2>
-  <form   action = "/login_users" method="GET" >
-    <p>
-      Email <input type="text" name="email">
-    </p>
-
-    <p>
-      Password <input type="password" name="password">
-    </p>
-
-    <p>
-      <input type="submit" name= "LOGIN " value="login" ></p>
-    </form>
-    <form action="/show_signup" method="GET">
-    <input type ="submit" name ="sign up " value="sign up"> 
+<body class="backgroundcolor background">
+<link rel="stylesheet" type="text/css" href="/static/css/homepage.css">
+<!-- <div class="align-items-center"> -->
+  
+    <div class=" form-alignment align-items-center justify-content-center">
     
-  </form>
+  <div class="form-alignment">   
+    <div class="foreground wrap container form ">
+      <form  class= "form-alignment center " action= "/login_users" method="GET" >
+      <div class= "h1 font"> Login Here </div>
+      <p></p>
+      <p class="font left ">
+        Email <input class="right" type="text" name="email">
+      </p>
+      <p class="font left">
+        Password <input class="right" type="password" name="password">
+      </p>
+      <!-- <div class="align-items-center"> -->
+        <input class="buttons left" align-text="left" type="submit" name= "LOGIN " value="Login" >
+      </form>
+  
+      <form action="/show_signup" method="GET">
+      <input  class="buttons right" type ="submit" name ="sign up " value="Sign-up"> 
+      
+    </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  
+</body>
 {% endblock %}

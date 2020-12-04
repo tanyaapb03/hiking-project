@@ -1,0 +1,136 @@
+.buttons{
+    margin: 10%;
+    background-color: #ec6851;
+    border: 0;
+    color: white;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 18px;
+    line-height: 20px;
+    padding: 5px 20px 5px 20px;
+    cursor: pointer;
+    text-shadow: none;
+    list-style-position: inside;
+  }
+
+.heads{
+    font-family: inherit;
+    font-size: 1.5rem;
+    font-weight: 300;
+
+}
+.content{
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight:300;
+
+}
+
+
+.bold{
+    font-weight: bold;
+}
+
+.wrap {
+    display:-moz-box;
+    position: center;
+    z-index: 2;
+    bottom: 0;
+    width: 20%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+  }
+
+  .foreground{
+  
+  border-color: rgba(22, 22, 22, 0.726);
+  padding: 10px;
+  background:#c6b99d66;
+  padding-bottom: 12px;
+  border-radius: 4px;
+  height: max-content;
+  width:max-content;
+  align-self: center;
+  margin: auto;
+  border-style: solid;
+  
+  }
+#form{
+    margin: auto;
+}
+
+  .background-for-search {
+    background-color: #d3b576;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/000/523/841/non_2x/vector-nature-seamless-pattern-winter-forest-background-trees-wallpaper.jpg');
+
+    background-repeat: repeat;
+    background-size: auto;
+    opacity: 20;
+  
+
+}
+#note{
+    font-style: italic;
+    font-size: .75rem;
+    color:rgb(29, 29, 28);
+
+
+}
+
+
+   
+    
+    
+
+  .align-items-center {
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+
+.justify-content-center {
+-webkit-box-pack: center !important;
+-ms-flex-pack: center !important;
+justify-content: center !important;
+}
+
+.padding-top{
+    padding-top: 10%;
+}
+
+.form-alignment{
+    align-self: center;
+    position: relative;
+    /* outline-style: dashed; */
+    outline-width: 5px;
+    /* outline-color: greenyellow; */
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 8px;
+    border: grey;
+    align-content: center;
+}
+.buttons:hover {
+    background-color: rgb(86, 117, 86);
+    color: orange;
+    
+  }
+  
+.buttons.active {
+    background-color: grey;
+    color: ivory;
+    border-color: orange;}
+
+.form{
+      border-color:#0000004f;
+      width: max-content;
+      height: max-content;
+    }
+.form:hover {
+      border-color: orange;
+      background-color: rgba(255, 255, 240, 0.683);}
+

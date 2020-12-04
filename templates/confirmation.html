@@ -5,10 +5,12 @@
 {% block title %} Hiking Trail FORM {% endblock %}
 
 {% block body %}
-<h4> CONFIRMED !! Enjoy  your hike and dont forget to rate </h4>
+<link rel="stylesheet" type="text/css" href="/static/css/confirmation.css">
+<body class="background-confirmation">
+<form class="foreground wrap container content form center justigy-content-center" action="/user_profile" method="GET">
+<h4 id="confirm" ></h4> CONFIRMED !! Enjoy  your hike and dont forget to comment </h4>
 
-
-
-
-
+<input  class=" center justify-contet-center buttons" type="submit"  name="submit" value="Check Out Your Profile ">
+</form>
+</body>
 {% endblock  %}

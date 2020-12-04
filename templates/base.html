@@ -1,12 +1,17 @@
 <!doctype html>
+
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>
       {% block title %}{% endblock %}
-    </title>
 
+
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css">
     {% block head %}{% endblock %}
   </head>
       
@@ -18,40 +23,17 @@
         {{ msg }}
       </p>
     {% endfor %}
-    <nav>
-      <style> 
-  
-
-        .topnav {
-          overflow: hidden;
-          background-color: #333;
-        }
-        
-        .topnav a {
-          float: left;
-          color: #f2f2f2;
-          text-align: center;
-          padding: 14px 16px;
-          text-decoration: none;
-          font-size: 17px;
-        }
-        
-        .topnav a:hover {
-          background-color: #ddd;
-          color: black;
-        }
-        
-        .topnav a.active {
-          background-color: #4CAF50;
-          color: white;
-        }
-        </style>
-        
+    <nav class="navbar navbar-light bg-light background">
+      <a class="navbar-brand">
+        <img src="https://i.pinimg.com/564x/de/82/29/de822902b1f27718862f9453277c91ce.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+        Discover Hikes
+      </a>
+    </nav>
+    <nav>  
       <div class="topnav">
         <a  href="/user_profile">profile</a>
         <a href="/search_hikes">Search</a>
-        <a href="#c">sports news</a>
-        <a href="#about">About</a>
+        <a href="/about">About</a>
         <a href="/signout">signout</a>
       </div>
 
@@ -63,7 +45,13 @@
     
     {% endblock %}
 
-    {% block after_body %}{% endblock %}
-  </body>
+    <!-- jQuery script tag from code.jquery.com -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <!-- Script tags from getbootstrap.com -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+  
   </html>
   

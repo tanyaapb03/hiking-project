@@ -3,67 +3,56 @@
 {% block title %} Hiking Trail FORM {% endblock %}
 
 {% block body %}
-<!-- <style>  -->
-<!--   
-/* 
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
 
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
+<link rel="stylesheet" type="text/css" href="/static/css/search-hikes.css">
+<body class="background-for-search align-items-center">
+<div class="align-items-center">
 
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
+    
+    <!-- <p class="foreground wrap align-items-center justify-content-center" -->
+    
+      <!-- <div class=" form-alignment  foreground align-items-center"> -->
+      <div id="form" class=" justify-content-center font padding-top  wrap">
 
-.topnav a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-</style> -->
+        <form  class=" form foreground align-items-center padding-top" action="/result_hikes" method="GET">
+          <div class="heads" >
+          Pincode
+        <input class="content" type ="text" name="pincode" value ="pincode">
+          </div>
+        <p>
+          </p>
+        
+        <div class="heads"> 
+          Difficulty Level
+        
+        <input type ="radio" name ="Difficulty" value = "black" >
+        <label class="content">Black</label>
+      
+        <input type ="radio" name ="Difficulty" value = "blue" >
+        <label class="content">Blue</label>      
+        
+        <input type ="radio" name ="Difficulty" value = "blueBlack" >
+        <label class="content">Black-blue</label>  
+      <div id="note"> * Black = Most difficult , 
+              Blue = Easy , 
+              black-blue=Difficult . 
+      </div>
+    </div>
+        <p>
+          
+        </p>
+        <div class="heads">Radius 
+          <input class="content" type = "text" name = "radius" value="radius">
+        </div>
 
-
-
-
-
-
-
-<h1>Welcome!</h1>
-<form action="/result_hikes" method="GET">
-  <label>Pincode</label>
-  <input type ="text" name="pincode" value ="pincode">
+          <input   class ="buttons align-items-center" type="submit">
+        </form>
+      </div>
+    </div>
+  <!-- </div> -->
  
 
-  <label> Difficulty Level</label>
-  
-  <input type ="radio" name ="Difficulty" value = "black" >
-  <label>Black</label>
-
-  
-  <input type ="radio" name ="Difficulty" value = "blue" >
-  <label>Blue</label>      
-  
-  <input type ="radio" name ="Difficulty" value = "blueBlack" >
-  <label>Black-blue</label>     
-
-    <a>
-      <label>Radius of  </label>
-      <input type = "text" name = "radius" value="radius">
-    </a>
+</body>
     
-
-  <p>
-    <input type="submit">
-  </p>
-</form>
 {% endblock %}
-  
+   

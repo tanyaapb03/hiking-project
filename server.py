@@ -90,6 +90,10 @@ def login_user():
 def hike_data():
     return render_template('hike_data.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 
 @app.route('/show_signup')
 def show_signup():

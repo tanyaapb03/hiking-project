@@ -4,27 +4,35 @@
 {% block title %} SELECTED HIKES{% endblock %}
 
 {% block body %}
-
-
-        <p>
-       
-                {% for trail in trails %}
-                <form action="/detailed_trails" method="GET">
-                <li>Name</li>
-                <h1>{{ trail.trail_name }}</h1>
-                Summary
-                <p>{{trail.summary}}</p>
-                Image
-                <img src= "{{trail.image}}"> 
+<link rel="stylesheet" type="text/css" href="/static/css/hike-data.css">
+<body class="background-for-result ">
+<p>
+        <div class="view overlay">
+                
+              
+       <div  class="cols row">
+        {% for trail in trails %}
+         
+                <form class=" form container foreground padding margin img img-fluid"   action="/detailed_trails" method="GET" >
+                
+                <label class="heads bold" >{{ trail.trail_name }} </label>
+                <p><div class="bold">Summary:-</div><div class="content">{{trail.summary}} </div></p>
+                <div class="content "><img src= "{{trail.image}}"></div>
                 <input type="hidden" name="trail_id" value="{{trail.trail_id}}">
-                <input type="submit"name='select'value='select'>
+                <input class="buttons heads align-items-center " type="submit"name='select'value='select'>
             </form>
                 {% endfor %}
-        
-            
-        </p>
+        </div>
+        </div>    
+</p>
     
     
 
 
 {% endblock %}
+<!-- <div class="view overlay">
+        <img src="https://mdbootstrap.com/img/Photos/Others/forest-sm.jpg" class="img-fluid " alt="smaple image">
+        <div class="mask flex-center rgba-green-slight">
+            <p class="white-text">Super light overlay</p>
+        </div>
+    </div> -->

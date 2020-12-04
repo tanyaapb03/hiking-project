@@ -4,9 +4,11 @@
 {% block title %} Hiking Trail FORM {% endblock %}
 
 {% block body %}
-<h1>Welcome! {{current_logged_in_user.first_name }} </h1>
+<body class="background-for-profile">
+
+<h1 class="font color welcome foreground wrap margin padding">Welcome! {{current_logged_in_user.first_name }} </h1>
 <div>
-    <link rel="stylesheet" type="text/css" href="/static/user_profile.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/user_profile.css">
 </div>
 <style>
     table, th, td {
@@ -15,26 +17,31 @@
     th{width: 25%;}
     </style>
 
-
+<p class="align-left hikesvisited font"> Hikes visited </p>
 
 {#.trails as we named the relation in model .py as trails= .... #}
-{%for trail in current_logged_in_user.trails%}
-<body>
-    <table>
-        <tr>
-            <th>Trail name </th>
-            <th>summary</th>
-            <th>image</th>
-            <th>rating</th>
-            <th> Comments </th>
-          </tr>
+
+<div class="font">
+
+    <div class="table-responsive-md margin">
+    <table class="foreground wrap  margin">
+
         
-    
+        <tr class="tableheading font align-content-center" >
+            <th  scope="col" class="tableheading align-content-center" >Trail Name </th>
+            <th scope="col" class="tableheading align-content-center">Summary</th>
+            <th scope="col" class="tableheading align-content-center">Image</th>
+            <th scope="col" class="tableheading ratingwidth align-content-center">Rating</th>
+            <th scope="col" class="tableheading  align-content-center">Comments </th>
+            <th scope="col" class="tableheading  align-content-center">Add-Comments</th>
+          </tr>
+          {%for trail in current_logged_in_user.trails%} 
+          
           <tr>
-            <td>{{trail.trail_name}}</td>
-            <td>{{trail.summary}}</td>
-            <td><img src="{{trail.image}}"> </td>
-            <td> <form methods="POST" >
+            <th scope="row" class="align-content-center text font ">{{trail.trail_name}}</th>
+            <td class="align-content-center text font">{{trail.summary}}</td>
+            <td class="align-content-center text font "><img src="{{trail.image}}"> </td>
+            <td class="starrating font text" > <form methods="POST" >
                 
                 <input type="radio" id="1" name="rating" value="1">
                 <label for="1">1</label><br>
@@ -47,28 +54,33 @@
                 <input type="radio" id="5" name="rating" value="5">
                 <label for="5">5</label><br>
             </form></td>
-            <td>
+            <td id="comment" class="align-left text font">
                 <ol>
                     {%for comment in trail.comments%}
                    <li>
                     {{comment.comment_text}}
                    </li> 
-                {%endfor%}
+                   {%endfor%}
 
                 </ol>
                 
             </td>
 
-            <td><form method="POST" action="/create_comments">
+            <td  id="add-comments" class="  text font"><form method="POST" action="/create_comments">
                 <input type="text"  id ="Comments"name="comments" value="comments">
-                <input type="submit" id="submit_comments" name="submit_comments" value="submit_comments">
+                <input class="buttons" type="submit" id="submit_comments" name="submit_comments" value="Add">
                <input type="hidden" value="{{trail.trail_id}}" name="trail_id">
                 <label for= "comments"></label> <br>
             </form>
 
         </td></tr>
+        {%endfor%}
                 </table>
+                </div>
+                </div>
+                </div>
             </body>
+       
 
             
             
@@ -77,7 +89,7 @@
             
             
            
-{%endfor%}
+
 <!-- <tr>
     Hike name 
     <td>

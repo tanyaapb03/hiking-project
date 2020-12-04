@@ -3,28 +3,32 @@
 {% block title %} ~~~~HIKING TRAILS~~~~~ {% endblock %}
 
 {% block body %}
-  <h1>Welcome!</h1>
+<body class="background-signup">
+  <link rel="stylesheet" type="text/css" href="/static/css/signup.css">
+  
+  <div class="container foreground wrap form center justify-content-center margin-top ">
 
-  <h2>Create an Account</h2>
-  <form action="/create_users" method="POST">
-    Create an account 
-    <p>
-        First Name <input type="text" name="first_name" >
+  
+  <form  action="/create_users" method="POST">
+    <div class="heads bold margin"> Create an account  </div>
+    <p class="left">
+        First Name   <input class="content right" type="text" name="first_name" >
       </p>
-      <p>
-        lastname <input type="text" name="last_name">
+      <p class="left">
+        lastname   <input  class="content right" type="text" name="last_name">
       </p>
-      <p>
-        Email <input type="text" name="email">
+      <p class="left">
+        Email   <input  class="content right" type="text" name="email">
       </p>
     
-    <p>
-      Password <input type="password" name="password">
+    <p class="left">
+      Password   <input  class="content right" type="password" name="password">
     </p>
 
-    <p>
-      <input type="submit" >
+    <p class="center">
+      <input  class="buttons left" type="submit" >
       
     </p>
   </form>
+  </div>
 {% endblock %}
