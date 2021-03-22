@@ -1,4 +1,4 @@
-# hiking-project
+# HIKE-FINDER
 
 My goal from this web app was to find the trails near my location and comment on them  to share my experience with other users.
 
